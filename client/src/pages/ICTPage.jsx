@@ -32,7 +32,7 @@ const ICTPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/categories/ict')
+        fetch('/api/categories/ict')
             .then(res => res.json())
             .then(res => {
                 setData(res);

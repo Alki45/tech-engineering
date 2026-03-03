@@ -31,7 +31,7 @@ const PowerPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/categories/power')
+        fetch('/api/categories/power')
             .then(res => res.json())
             .then(res => {
                 setData(res);

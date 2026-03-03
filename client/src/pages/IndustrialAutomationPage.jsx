@@ -36,7 +36,7 @@ const IndustrialAutomationPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/categories/automation')
+        fetch('/api/categories/automation')
             .then(res => res.json())
             .then(res => {
                 setData(res);

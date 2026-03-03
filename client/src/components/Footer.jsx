@@ -87,6 +87,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 mt-16 md:mt-24 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black tracking-[0.2em] uppercase text-slate-600">
                 <p>© 2026 MEETO Engineering PLC. Excellence By Design.</p>
                 <div className="flex gap-8">
+                    <Link to="/admin" className="hover:text-primary transition-colors">Admin Console</Link>
                     <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                     <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
                 </div>

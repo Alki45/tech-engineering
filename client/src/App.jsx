@@ -27,6 +27,7 @@ import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
 import CareersPage from './pages/CareersPage';
 import IndustrialAutomationPage from './pages/IndustrialAutomationPage';
+import AdminDashboard from './pages/AdminDashboard';
 import Footer from './components/Footer';
 
 const SiteHeader = () => {
@@ -183,6 +184,7 @@ function App() {
               <Route path="/services/power" element={<PowerPage />} />
               <Route path="/services/electromechanical" element={<ElectromechanicalPage />} />
               <Route path="/services/industrial-automation" element={<IndustrialAutomationPage />} />
+              <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
           </main>
           <Footer />
