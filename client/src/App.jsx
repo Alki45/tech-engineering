@@ -25,7 +25,6 @@ import ElectromechanicalPage from './pages/ElectromechanicalPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
-import CareersPage from './pages/CareersPage';
 import IndustrialAutomationPage from './pages/IndustrialAutomationPage';
 import AdminDashboard from './pages/AdminDashboard';
 import Footer from './components/Footer';
@@ -52,7 +51,6 @@ const SiteHeader = () => {
             { to: '/', label: 'Home' },
             { to: '/about', label: 'About' },
             { to: '/projects', label: 'Projects' },
-            { to: '/careers', label: 'Careers' },
             { to: '/contact', label: 'Contact' },
           ].map((item) => (
             <Link
@@ -98,7 +96,6 @@ const SiteHeader = () => {
                 { to: '/', label: 'Home', icon: Home },
                 { to: '/about', label: 'About Us', icon: Info },
                 { to: '/projects', label: 'Our Projects', icon: Briefcase },
-                { to: '/careers', label: 'Join Us', icon: Users },
                 { to: '/contact', label: 'Contact', icon: Mail },
               ].map((item) => (
                 <Link
@@ -179,7 +176,6 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/careers" element={<CareersPage />} />
               <Route path="/services/ict" element={<ICTPage />} />
               <Route path="/services/power" element={<PowerPage />} />
               <Route path="/services/electromechanical" element={<ElectromechanicalPage />} />

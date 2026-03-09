@@ -139,12 +139,11 @@ const ContactPage = () => {
                 <div className="space-y-16">
                     <motion.div variants={itemVariants} className="space-y-10">
                         <h2 className="text-3xl font-black dark:text-white flex items-center gap-4">
-                            <Globe size={32} className="text-primary" /> Global Hubs
+                            <Globe size={32} className="text-primary" /> Corporate Headquarters
                         </h2>
                         <div className="grid gap-6">
                             {[
-                                { city: 'Tech District, NY', address: '4500 Industrial Way, Suite 800\nNew York, NY 10001, USA' },
-                                { city: 'Innovation Hub, London', address: '22 Tech Plaza, Canary Wharf\nLondon E14 5AB, UK' },
+                                { city: 'Addis Ababa, Ethiopia', address: 'Nefas Silk Lafto Woreda 12\nHouse Number 205 B\nAddis Ababa, Ethiopia' },
                             ].map((hub) => (
                                 <div key={hub.city} className="flex gap-8 px-8 py-10 rounded-3xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 group hover:border-primary/30 transition-all">
                                     <div className="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-all">

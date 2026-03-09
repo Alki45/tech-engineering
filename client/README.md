@@ -1,16 +1,28 @@
-# React + Vite
+# 💻 MEETO Client - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend of MEETO Engineering PLC platform, built with modern web technologies for a premium user experience.
 
-Currently, two official plugins are available:
+## ✨ Features
+- **Dynamic Theming**: Smooth transition between Light and Dark modes.
+- **Responsive Architecture**: Fully optimized for Desktop, Tablet, and Mobile.
+- **Animated UI**: Fluid motions using Framer Motion.
+- **Service API Integration**: Fetches dynamic service data from the backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Getting Started
 
-## React Compiler
+### Installation
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Development
+```bash
+npm run dev
+```
 
-## Expanding the ESLint configuration
+### Build
+```bash
+npm run build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The build output will be in the `dist` folder, which is configured for Vercel deployment.

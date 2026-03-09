@@ -54,7 +54,6 @@ const Footer = () => {
                         {[
                             { name: 'About Us', link: '/about' },
                             { name: 'Our Projects', link: '/projects' },
-                            { name: 'Join The Team', link: '/careers' },
                             { name: 'Contact Hub', link: '/contact' }
                         ].map(item => (
                             <li key={item.name}>
@@ -71,7 +70,7 @@ const Footer = () => {
                     <h4 className="text-white font-black uppercase tracking-widest text-xs">Direct Support</h4>
                     <div className="space-y-6">
                         {[
-                            { icon: MapPin, text: "Wilhelmsstraße 48, 10117 Berlin, DE" },
+                            { icon: MapPin, text: "Nefas Silk Lafto Woreda 12, House Number 205 B, Addis Ababa, Ethiopia" },
                             { icon: Phone, text: "+49 (0) 30 1234 5678" },
                             { icon: Mail, text: "solutions@meeto-eng.com" }
                         ].map((item, idx) => (

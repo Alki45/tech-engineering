@@ -197,9 +197,6 @@ const AboutPage = () => {
                     <Link to="/contact" className="px-12 py-5 bg-white text-primary rounded-2xl font-black uppercase tracking-widest text-xs shadow-2xl hover:bg-slate-50 transition-all">
                         Partner With Us
                     </Link>
-                    <Link to="/careers" className="px-12 py-5 bg-primary-dark border border-white/20 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white/10 transition-all">
-                        Join Our Team
-                    </Link>
                 </div>
             </section>
         </motion.main>
