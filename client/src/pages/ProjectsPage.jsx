@@ -61,42 +61,61 @@ const categories = ['All Projects', 'Power & Energy', 'ICT Infrastructure', 'Ele
 const ProjectsPage = () => {
     const [activeFilter, setActiveFilter] = useState('All Projects');
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.5 }
+        }
+    };
+
     const filtered = activeFilter === 'All Projects'
         ? projects
         : projects.filter(p => p.category === activeFilter);
 
     return (
-        <div className="flex-1 space-y-12 pb-24">
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex-1 space-y-12 pb-24"
+        >
             {/* Hero Section */}
-            <section className="relative h-[400px] w-full overflow-hidden bg-slate-900">
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                        backgroundImage: `linear-gradient(to bottom, rgba(16, 25, 34, 0.2), rgba(16, 25, 34, 0.95)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaYBYNuPaRKpQ0KDcg4rgnPmoMudwQsLXPtSgonthu1bFS6Gi6ijm-PsujnK5PbzkmUqQHsnbs_TfpXZ8XKTAt0ycPMzH0IWuf5PIhijQMwRBbaFrW8z98Ssb1MCZUtGl8SucM_BwuV2xJqEHgJbnxKQXSJmwD6Z3THPqQyY1PVcw2Mtpo5_3bdKoK6NZ1gq6K3tpA-0nLpr7kgxcDQgj5p9n__l-pX7Kr6lDmuzuvxKp0DEcifzIe-AOPb6xrZ-cLgOgnYtCKtwCU')`
-                    }}
-                />
-                <div className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-center items-start space-y-6">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/20 border border-primary/30 rounded-full text-primary text-xs font-black uppercase tracking-widest backdrop-blur-md"
-                    >
-                        Portfolio
+            <section className="relative rounded-[3rem] overflow-hidden bg-slate-950 min-h-[500px] flex items-center group">
+                <div className="absolute inset-0">
+                    <img
+                        alt="Engineering Portfolio"
+                        className="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaYBYNuPaRKpQ0KDcg4rgnPmoMudwQsLXPtSgonthu1bFS6Gi6ijm-PsujnK5PbzkmUqQHsnbs_TfpXZ8XKTAt0ycPMzH0IWuf5PIhijQMwRBbaFrW8z98Ssb1MCZUtGl8SucM_BwuV2xJqEHgJbnxKQXSJmwD6Z3THPqQyY1PVcw2Mtpo5_3bdKoK6NZ1gq6K3tpA-0nLpr7kgxcDQgj5p9n__l-pX7Kr6lDmuzuvxKp0DEcifzIe-AOPb6xrZ-cLgOgnYtCKtwCU"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                </div>
+
+                {/* Grid Overlay */}
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(19, 127, 236, 1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+
+                <div className="relative z-10 p-12 md:p-24 max-w-4xl space-y-8">
+                    <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-md">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Portfolio Overview
                     </motion.div>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-white text-5xl md:text-7xl font-black leading-tight tracking-tighter"
-                    >
+                    <motion.h1 variants={itemVariants} className="text-5xl md:text-8xl font-black text-white leading-[0.85] uppercase tracking-tighter">
                         Engineering <br />
-                        <span className="text-gradient">Excellence.</span>
+                        <span className="text-primary italic">Excellence.</span>
                     </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-slate-300 max-w-2xl text-lg md:text-xl font-medium leading-relaxed"
-                    >
+                    <motion.p variants={itemVariants} className="text-slate-400 text-lg md:text-xl font-medium max-w-xl italic">
                         Delivering high-precision infrastructure and innovative industrial solutions across global sectors.
                     </motion.p>
                 </div>
@@ -213,7 +232,7 @@ const ProjectsPage = () => {
                     ))}
                 </div>
             </section>
-        </div>
+        </motion.div>
     );
 };
 

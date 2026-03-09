@@ -45,25 +45,35 @@ const ContactPage = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="flex-grow max-w-7xl mx-auto w-full px-6 py-12 space-y-24"
+            className="flex-grow max-w-7xl mx-auto w-full px-6 py-24 space-y-32"
         >
             {/* Hero Section */}
-            <section className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 min-h-[400px] flex items-center">
+            <section className="relative rounded-[3rem] overflow-hidden bg-slate-950 min-h-[500px] flex items-center group">
                 <div className="absolute inset-0">
-                    {/* Blueprint decoration background */}
-                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(19, 127, 236, 1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+                    <img
+                        alt="Contact MEETO Engineering"
+                        className="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000"
+                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2301"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 p-12 md:p-20 max-w-4xl space-y-8">
-                    <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-black uppercase tracking-widest backdrop-blur-md">
-                        <Globe size={14} /> Global Support Network
+                {/* Grid Overlay */}
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(19, 127, 236, 1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+
+                <div className="relative z-10 p-12 md:p-24 max-w-4xl space-y-8">
+                    <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-md">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Global Support Network
                     </motion.div>
-                    <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tighter">
+                    <motion.h1 variants={itemVariants} className="text-5xl md:text-8xl font-black text-white leading-[0.85] uppercase tracking-tighter">
                         Precision Engineering <br />
-                        <span className="text-gradient">Starts Here.</span>
+                        <span className="text-primary italic">Starts Here.</span>
                     </motion.h1>
-                    <motion.p variants={itemVariants} className="text-slate-300 text-lg md:text-xl font-medium max-w-2xl">
+                    <motion.p variants={itemVariants} className="text-slate-400 text-lg md:text-xl font-medium max-w-xl italic">
                         Partner with us on your next engineering challenge. Our global team of experts is ready to assist with high-spec manufacturing solutions.
                     </motion.p>
                 </div>
@@ -167,9 +177,13 @@ const ContactPage = () => {
                         </h2>
                         <div className="grid sm:grid-cols-2 gap-6">
                             <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 group hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-transparent hover:border-primary/20">
+                                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Primary Contact</p>
+                                <p className="text-lg font-black dark:text-white">Awlachew Aboye</p>
+                            </div>
+                            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 group hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-transparent hover:border-primary/20">
                                 <Phone size={24} className="text-primary mb-6" />
                                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Phone</p>
-                                <p className="text-lg font-black dark:text-white">+1 (800) MEETO-ENG</p>
+                                <p className="text-lg font-black dark:text-white">+251 91 162 1978</p>
                             </div>
                             <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 group hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-transparent hover:border-primary/20">
                                 <Mail size={24} className="text-primary mb-6" />

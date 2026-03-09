@@ -42,56 +42,73 @@ const HomePage = () => {
     return (
         <div className="flex flex-col">
             {/* Hero Section */}
-            <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-slate-900">
+            <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-slate-950">
                 <div className="absolute inset-0">
                     <img
                         alt="Engineering background"
-                        className="w-full h-full object-cover opacity-40"
+                        className="w-full h-full object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-1000"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuqyhDQAZllG0s4U5SZhjDLRaYUiPQMUbhxIt1hUCtiPAXC_M0VU3joQWkCUh0-a6zi-NtPJiOxBrQG3mRbaV1YLxCWv2E8gywYLaSUwjVe3_GRFel7bYlgvK6wd1OEW4DX9Y0v067BpbVZsdNnt4wr8tu_dPNB5GwWZbF-6qwzRkRQUzEbnEbvI167narZed72x4nW-Xuqzoc_JCh1UKB_8u8fSvFBdcq9UZGVkjEdL3YJMWFjutmlY3_c4NuMsRXvhuMQendZ4IM"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950 to-slate-950"></div>
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-6 w-full py-20">
+                {/* Grid Overlay */}
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(19, 127, 236, 1) 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+
+                <div className="relative max-w-7xl mx-auto px-6 w-full py-32">
                     <motion.div
                         initial="hidden"
                         animate="visible"
                         variants={containerVariants}
-                        className="max-w-3xl space-y-8"
+                        className="max-w-4xl space-y-12"
                     >
-                        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold uppercase tracking-wider backdrop-blur-md">
+                        <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-md">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
-                            Engineering Excellence
+                            Pioneering Engineering Excellence
                         </motion.div>
 
-                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[1.05]">
-                            Precision Engineering. <br />
-                            <span className="text-gradient">Innovative Solutions.</span>
+                        <motion.h1
+                            variants={itemVariants}
+                            className="text-6xl md:text-9xl font-black tracking-tighter text-white leading-[0.85] uppercase"
+                        >
+                            Future <br />
+                            <span className="text-gradient">Engineered.</span>
                         </motion.h1>
 
-                        <motion.p variants={itemVariants} className="text-xl text-slate-300 leading-relaxed max-w-xl font-medium">
-                            We deliver state-of-the-art ICT, Power, and Electromechanical systems for high-performance enterprise infrastructures.
+                        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-2xl font-medium italic">
+                            Delivering state-of-the-art ICT, Power, and Electromechanical systems for the world's most demanding infrastructures.
                         </motion.p>
 
-                        <motion.div variants={itemVariants} className="flex flex-col sm:row gap-4 pt-6">
-                            <div className="flex flex-wrap gap-4">
-                                <Link to="/services/ict" className="btn-primary group">
-                                    Explore Solutions
-                                    <Rocket size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </Link>
-                                <Link to="/contact" className="btn-secondary">
-                                    Contact Us
-                                </Link>
-                            </div>
+                        <motion.div variants={itemVariants} className="flex flex-wrap gap-6 pt-8">
+                            <Link to="/services/ict" className="btn-primary group">
+                                Explore Solutions
+                                <Rocket size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            </Link>
+                            <Link to="/contact" className="btn-secondary">
+                                Book Now
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </div>
 
                 {/* Floating elements decoration */}
-                <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-primary/20 blur-[120px] rounded-full -mr-20 -mb-20 animate-pulse-slow"></div>
+                <div className="absolute bottom-1/4 right-0 w-1/2 h-1/2 bg-primary/20 blur-[150px] rounded-full -mr-32 -mb-32"></div>
+                <motion.div
+                    animate={{ y: [0, -20, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-1/3 right-20 hidden lg:block"
+                >
+                    <div className="glass p-8 rounded-[3rem] border-white/5 shadow-2xl space-y-6 max-w-xs rotate-3">
+                        <div className="size-16 bg-primary rounded-2xl flex items-center justify-center shadow-xl">
+                            <Cpu className="text-white size-8" />
+                        </div>
+                        <p className="text-sm font-bold text-slate-300">"The standard of innovation in heavy industry."</p>
+                        <div className="h-0.5 w-12 bg-primary/30"></div>
+                    </div>
+                </motion.div>
             </section>
 
             {/* Stats Section */}
@@ -144,7 +161,8 @@ const HomePage = () => {
                             desc: 'Robust networking, cybersecurity, and cloud infrastructure designed for global enterprises.',
                             link: '/services/ict',
                             color: 'text-blue-500',
-                            bgColor: 'bg-blue-500/10'
+                            bgColor: 'bg-blue-500/10',
+                            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR7J7wVvQX2L_Bf3pG1iH8D7w1j9o-hQeA6u4mK3vO8Z6Z-M4rL0mMeWLJwOkeoaEJ-Ct-gcqHxX-hyLeEYwcWPgjXM63lItmbvYFzqI4C0TJ9Qq000zAv7DsmKKsNlY9LsLTtsY9yOLlN6Z8huR0JOQNXI3eTWL'
                         },
                         {
                             icon: Zap,
@@ -152,7 +170,8 @@ const HomePage = () => {
                             desc: 'Sustainable and reliable energy distribution, from smart grids to industrial-scale backup systems.',
                             link: '/services/power',
                             color: 'text-amber-500',
-                            bgColor: 'bg-amber-500/10'
+                            bgColor: 'bg-amber-500/10',
+                            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuClrNhxBvf8aFn9Y9_afNfRTL9OjxyQ0xuihN8epQrANDDbybcO2QKsNCMmtQEFRxqOc2nxhwlXuBbn1IkDlMCew-77GOXp7N-LYbuSJYV9YRrnlubraAp0YVmCrPCM5mnyBxbpff1pnmk6CX5GVxVUgpIxJsUMPWEo74oREiXnpwJtrhabz35QWpBhrOAjn_CzDT58JR_MQA30XHN7OYP9W33cI8RLeod7nU1cmGM6MiHIDAp8UKir664n0FHNchaSMFnLmL0KEU7Q'
                         },
                         {
                             icon: Settings,
@@ -160,7 +179,8 @@ const HomePage = () => {
                             desc: 'Expert design and maintenance of precision mechanical systems and electrical controls.',
                             link: '/services/electromechanical',
                             color: 'text-emerald-500',
-                            bgColor: 'bg-emerald-500/10'
+                            bgColor: 'bg-emerald-500/10',
+                            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAyVn_zzpjPvKLqm8aYemJcBotmrGp8xpDFqUmMUg6RYwWYQ9x-rrAR7WZV-PhfEBHLr7HBHZEZDBqY-pp6PtOhTt7sV6JKgnXpBZlKiRc-NPWSyqVSa1jX6s8V3s6cDx_jaeJEdPzdcMsZ7oSmhKQJt6AgG-ZM6rL0mMeWLJwOkeoaEJ-Ct-gcqHxX-hyLeEYwcWPgjXM63lItmbvYFzqI4C0TJ9Qq000zAv7DsmKKsNlY9LsLTtsY9yOLlN6Z8huR0JOQNXI3eTWL'
                         },
                         {
                             icon: Cpu,
@@ -168,32 +188,32 @@ const HomePage = () => {
                             desc: 'Advanced industrial automation and robotic solutions to optimize production efficiency.',
                             link: '/services/industrial-automation',
                             color: 'text-primary',
-                            bgColor: 'bg-primary/10'
+                            bgColor: 'bg-primary/10',
+                            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDIDOJs3WAYi941ZKQf8y6T8-dvEnRVUu_pKRuq6FOpBac9BWaG9hd8Io_z9lXBPIpFpA0jXcPAH-CyQaA8VCo-W0Jwn4wyXcMOR10nWg7s9lCcFsx7eEobQWNS1Ycl-TF3q90TlFD6pceSDOUtsZx-dhaoka5pdDV1ah1lug8GKh1U4Zl4V5RsK6gWT3Z6abFXmavxwP_wxBcA5VDqp7c32cyimPwQWOXFOU0WmzmbUrMJ7airlvoPwcSBgcrN4vncYa1aHAXXIakb'
                         },
                     ].map((service, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ y: 30, opacity: 0 }}
+                            initial={{ y: 50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className="glass-card group p-8 flex flex-col items-start gap-6 relative overflow-hidden"
+                            className="glass-card group flex flex-col items-start overflow-hidden hover-card"
                         >
-                            <div className={`size-14 rounded-2xl ${service.bgColor} ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                                <service.icon size={28} strokeWidth={2.5} />
+                            <div className="relative w-full h-48 overflow-hidden">
+                                <img src={service.img} alt={service.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                                <div className={`absolute bottom-4 left-4 size-12 rounded-xl ${service.bgColor} ${service.color} flex items-center justify-center backdrop-blur-md border border-white/10`}>
+                                    <service.icon size={24} strokeWidth={2.5} />
+                                </div>
                             </div>
-                            <div className="space-y-3">
-                                <h3 className="text-xl font-bold dark:text-white leading-tight">{service.title}</h3>
-                                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium">{service.desc}</p>
+                            <div className="p-8 space-y-4">
+                                <h3 className="text-2xl font-black dark:text-white uppercase tracking-tighter">{service.title}</h3>
+                                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium line-clamp-3">{service.desc}</p>
+                                <Link to={service.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:gap-4 transition-all">
+                                    Full Specification <ArrowRight size={14} />
+                                </Link>
                             </div>
-                            <Link to={service.link} className="mt-auto flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all">
-                                Learn More <ArrowRight size={18} />
-                            </Link>
-
-                            {/* Decorative background number */}
-                            <span className="absolute -bottom-6 -right-4 text-7xl font-black text-slate-100 dark:text-slate-800/10 -z-10 group-hover:scale-110 transition-transform duration-700">
-                                0{idx + 1}
-                            </span>
                         </motion.div>
                     ))}
                 </div>

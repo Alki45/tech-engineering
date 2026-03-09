@@ -17,8 +17,8 @@ import { Link } from 'react-router-dom';
 
 const team = [
     {
-        name: 'Dr. Marcus Sterling',
-        role: 'Chief Executive & Senior Director',
+        name: 'Awlachew Aboye',
+        role: 'Chief Executive Officer',
         img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDIDOJs3WAYi941ZKQf8y6T8-dvEnRVUu_pKRuq6FOpBac9BWaG9hd8Io_z9lXBPIpFpA0jXcPAH-CyQaA8VCo-W0Jwn4wyXcMOR10nWg7s9lCcFsx7eEobQWNS1Ycl-TF3q90TlFD6pceSDOUtsZx-dhaoka5pdDV1ah1lug8GKh1U4Zl4V5RsK6gWT3Z6abFXmavxwP_wxBcA5VDqp7c32cyimPwQWOXFOU0WmzmbUrMJ7airlvoPwcSBgcrN4vncYa1aHAXXIakb',
     },
     {
@@ -59,25 +59,32 @@ const AboutPage = () => {
             className="flex-grow max-w-7xl mx-auto w-full px-6 py-12 space-y-24"
         >
             {/* Hero Section */}
-            <section className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 min-h-[500px] flex items-center">
+            <section className="relative rounded-[3rem] overflow-hidden bg-slate-950 min-h-[500px] flex items-center group">
                 <div className="absolute inset-0">
                     <img
                         alt="Engineering Legacy"
-                        className="w-full h-full object-cover opacity-40 grayscale"
+                        className="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuClrNhxBvf8aFn9Y9_afNfRTL9OjxyQ0xuihN8epQrANDDbybcO2QKsNCMmtQEFRxqOc2nxhwlXuBbn1IkDlMCew-77GOXp7N-LYbuSJYV9YRrnlubraAp0YVmCrPCM5mnyBxbpff1pnmk6CX5GVxVUgpIxJsUMPWEo74oREiXnpwJtrhabz35QWpBhrOAjn_CzDT58JR_MQA30XHN7OYP9W33cI8RLeod7nU1cmGM6MiHIDAp8UKir664n0FHNchaSMFnLmL0KEU7Q"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 p-12 md:p-20 max-w-4xl space-y-8">
-                    <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-black uppercase tracking-widest backdrop-blur-md">
-                        Established 2004
+                {/* Grid Overlay */}
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(19, 127, 236, 1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+
+                <div className="relative z-10 p-12 md:p-24 max-w-4xl space-y-8">
+                    <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-md">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Est. 2004
                     </motion.div>
-                    <motion.h1 variants={itemVariants} className="text-5xl md:text-8xl font-black text-white leading-tight tracking-tighter">
+                    <motion.h1 variants={itemVariants} className="text-5xl md:text-8xl font-black text-white leading-[0.85] uppercase tracking-tighter">
                         A Legacy of <br />
-                        <span className="text-gradient">Precision.</span>
+                        <span className="text-primary italic">Precision.</span>
                     </motion.h1>
-                    <motion.p variants={itemVariants} className="text-slate-300 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
+                    <motion.p variants={itemVariants} className="text-slate-400 text-lg md:text-xl font-medium max-w-xl italic">
                         Engineering the future through two decades of technical mastery and unwavering industrial excellence.
                     </motion.p>
                 </div>

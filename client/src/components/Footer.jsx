@@ -27,8 +27,8 @@ const Footer = () => {
                     </p>
                     <div className="flex gap-4">
                         {[Linkedin, Twitter, Globe].map((Icon, idx) => (
-                            <a key={idx} href="#" className="size-11 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
-                                <Icon size={20} />
+                            <a key={idx} href="#" className="size-12 rounded-2xl bg-slate-900/50 border border-slate-800/50 flex items-center justify-center hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-500 backdrop-blur-md shadow-xl">
+                                <Icon size={20} strokeWidth={2} />
                             </a>
                         ))}
                     </div>
@@ -71,12 +71,14 @@ const Footer = () => {
                     <div className="space-y-6">
                         {[
                             { icon: MapPin, text: "Nefas Silk Lafto Woreda 12, House Number 205 B, Addis Ababa, Ethiopia" },
-                            { icon: Phone, text: "+49 (0) 30 1234 5678" },
+                            { icon: Phone, text: "+251 91 162 1978" },
                             { icon: Mail, text: "solutions@meeto-eng.com" }
                         ].map((item, idx) => (
-                            <div key={idx} className="flex gap-4 group cursor-pointer">
-                                <item.icon size={20} className="text-primary shrink-0 group-hover:scale-110 transition-transform" />
-                                <p className="text-sm font-medium group-hover:text-white transition-colors">{item.text}</p>
+                            <div key={idx} className="flex gap-5 group cursor-pointer">
+                                <div className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-lg shadow-primary/5 shrink-0">
+                                    <item.icon size={18} />
+                                </div>
+                                <p className="text-sm font-medium group-hover:text-slate-200 transition-colors leading-relaxed">{item.text}</p>
                             </div>
                         ))}
                     </div>

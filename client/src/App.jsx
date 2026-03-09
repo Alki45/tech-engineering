@@ -32,87 +32,129 @@ import Footer from './components/Footer';
 const SiteHeader = () => {
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = React.useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/projects', label: 'Projects' },
+    { to: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 h-18 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="bg-primary p-2 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
-            <Cpu className="text-white w-6 h-6" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-none">MEETO Engineering PLC</span>
-            <span className="text-[10px] font-bold text-primary tracking-widest uppercase">Precision & Innovation</span>
-          </div>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <nav className="glass rounded-[2rem] px-8 py-4 flex items-center justify-between shadow-2xl shadow-primary/10 border-white/10 dark:border-slate-800/50">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="bg-primary p-2.5 rounded-2xl flex items-center justify-center shadow-xl shadow-primary/30 group-hover:rotate-[360deg] transition-all duration-700">
+              <Cpu className="text-white w-6 h-6" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-none">MEETO</span>
+              <span className="text-[8px] font-black text-primary tracking-[0.3em] uppercase opacity-70">Engineering PLC</span>
+            </div>
+          </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {[
-            { to: '/', label: 'Home' },
-            { to: '/about', label: 'About' },
-            { to: '/projects', label: 'Projects' },
-            { to: '/contact', label: 'Contact' },
-          ].map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors relative group"
-            >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 flex items-center justify-center"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-6"
-          >
-            <div className="flex flex-col gap-4">
-              {[
-                { to: '/', label: 'Home', icon: Home },
-                { to: '/about', label: 'About Us', icon: Info },
-                { to: '/projects', label: 'Our Projects', icon: Briefcase },
-                { to: '/contact', label: 'Contact', icon: Mail },
-              ].map((item) => (
+          <div className="hidden lg:flex items-center gap-10">
+            {navLinks.map((item) => {
+              const isActive = location.pathname === item.to;
+              return (
                 <Link
                   key={item.to}
                   to={item.to}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all group"
+                  className={`text-[10px] font-black uppercase tracking-widest transition-all duration-300 relative group ${isActive ? 'text-primary' : 'text-slate-500 dark:text-slate-400 hover:text-primary'
+                    }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">
-                      <item.icon size={20} />
-                    </div>
-                    <span className="font-bold text-slate-700 dark:text-slate-200">{item.label}</span>
-                  </div>
-                  <ChevronRight size={18} className="text-slate-400 group-hover:translate-x-1 transition-transform" />
+                  {item.label}
+                  <span className={`absolute -bottom-2 left-0 h-0.5 bg-primary transition-all duration-500 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </Link>
-              ))}
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="size-12 rounded-2xl bg-slate-100/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-all duration-500 flex items-center justify-center border border-white/20 dark:border-slate-700/50 shadow-inner"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden size-12 rounded-2xl bg-primary text-white hover:bg-primary-dark transition-all duration-500 flex items-center justify-center shadow-xl shadow-primary/20"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[110] lg:hidden bg-slate-950/95 backdrop-blur-2xl p-8 flex flex-col justify-between"
+          >
+            <div className="space-y-12">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="bg-primary p-2 rounded-xl">
+                    <Cpu className="text-white w-6 h-6" />
+                  </div>
+                  <span className="text-xl font-black text-white uppercase tracking-tight">MEETO</span>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="size-14 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-6">
+                {[
+                  { to: '/', label: 'Home', icon: Home },
+                  { to: '/about', label: 'About Us', icon: Info },
+                  { to: '/projects', label: 'Our Projects', icon: Briefcase },
+                  { to: '/contact', label: 'Contact', icon: Mail },
+                ].map((item, idx) => (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    key={item.to}
+                  >
+                    <Link
+                      to={item.to}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between p-6 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-primary hover:border-primary transition-all group"
+                    >
+                      <div className="flex items-center gap-6 text-white">
+                        <item.icon size={24} className="opacity-50 group-hover:opacity-100" />
+                        <span className="text-2xl font-black uppercase tracking-tighter">{item.label}</span>
+                      </div>
+                      <ChevronRight size={24} className="opacity-30 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-8 bg-primary rounded-[2.5rem] text-white flex justify-between items-center group overflow-hidden relative">
+              <Zap className="absolute -right-6 -top-6 size-32 text-white/10 -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+              <div className="relative z-10">
+                <p className="text-[10px] font-black uppercase tracking-widest opacity-70 mb-2">Need Help?</p>
+                <h3 className="text-xl font-black leading-tight">Get Technical <br /> Support Now</h3>
+              </div>
+              <Link to="/contact" onClick={() => setIsOpen(false)} className="relative z-10 size-14 bg-white text-primary rounded-2xl flex items-center justify-center shadow-2xl transition-transform active:scale-90">
+                <Mail size={24} />
+              </Link>
             </div>
           </motion.div>
         )}
