@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "dev": "npx concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+        "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+        "run-dev": "./run-dev.sh",
         "install-all": "npm install && cd client && npm install && cd ../server && npm install",
         "build": "cd client && npm run build",
         "start": "cd server && npm start"
